@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZayGabar Wholesale | Amazon စတိုင် အထွေထွေလက်ကားကုန်စင်တာကြီး</title>
+    <style>
+        :root {
+            --amazon-orange: #ff9900;
+            --amazon-dark: #131921;
+            --amazon-light-dark: #232f3e;
+            --text-color: #333;
+            --bg-color: #eaeded;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            background-color: var(--amazon-dark);
+            color: white;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-zone {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .brand-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        .brand-logo span {
+            color: var(--amazon-orange);
+        }
+
+        .search-bar {
+            display: flex;
+            background-color: white;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        .search-bar:focus-within {
+            border-color: var(--amazon-orange);
+        }
+        .search-input {
+            border: none;
+            padding: 12px;
+            flex-grow: 1;
+            outline: none;
+            font-size: 14px;
+        }
+        .search-btn {
+            background-color: var(--amazon-orange);
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .nav-categories {
+            background-color: var(--amazon-light-dark);
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+            gap: 15px;
+            white-space: nowrap;
+        }
+        .nav-categories::-webkit-scrollbar { display: none; }
+        .cat-link {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .cat-link.active {
+            color: var(--amazon-orange);
+            font-weight: bold;
+        }
+
+        .main-content {
+            padding: 12px;
+        }
+
+        .section-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: var(--amazon-dark);
+        }
+
+        .amazon-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+        }
+
+        .img-box {
+            background-color: #fff;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        .img-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .info-box {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .p-name {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.4;
+            height: 36px;
+            overflow: hidden;
+            margin-bottom: 6px;
+            color: #111;
+        }
+
+        .p-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #B12704;
+            margin-bottom: 2px;
+        }
+
+        .p-moq {
+            font-size: 11px;
+            color: #565959;
+            margin-bottom: 10px;
+        }
+
+        .contact-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: auto;
+        }
+
+        .c-btn {
+            display: block;
+            text-align: center;
+            padding: 8px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .btn-viber { background-color: #732dd9; }
+        .btn-tele { background-color: #0088cc; }
+
+        .footer-contacts {
+            background-color: var(--amazon-dark);
+            color: white;
+            padding: 20px 15px 40px 15px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-title {
+            color: var(--amazon-orange);
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .main-call-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--amazon-orange);
+            color: var(--amazon-dark);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .wechat-id-box {
+            background-color: rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 15px;
+            display: inline-block;
+            border: 1px dashed var(--amazon-orange);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Zone -->
+    <div class="header">
+        <div class="brand-zone">
+            <a href="#" class="brand-logo">ZayGabar<span>.wholesale</span></a>
+            <span style="font-size: 11px; color: #ccc;">လက်ကားဒိုင်ကြီး</span>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Amazon စတိုင် ကုန်ပစ္စည်းမျိုးစုံကို ရှာဖွေပါ...">
+            <button class="search-btn">🔍</button>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="nav-categories">
+        <a href="#" class="cat-link active">All (အားလုံး)</a>
+        <a href="#" class="cat-link">လူသုံးကုန်</a>
+        <a href="#" class="cat-link">လျှပ်စစ်ပစ္စည်း</a>
+        <a href="#" class="cat-link">အဝတ်အထည်</a>
+        <a href="#" class="cat-link">အိတ်နှင့်ဖိနပ်</a>
+        <a href="#" class="cat-link">အဲကွန်း/အအေးခန်း</a>
+    </div>
+
+    <!-- Products -->
+    <div class="main-content">
+        <div class="section-header">အသစ်ရောက်ရှိသော လက်ကားကုန်ပစ္စည်းများ</div>
+        
+        <div class="amazon-grid">
+            
+            <!-- ပစ္စည်း ၁ -->
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://via.placeholder.com/150" alt="Product 1">
+                </div>
+                <div class="info-box">
+                    <div class="p-name">တရုတ်နိုင်ငံထုတ် အရည်အသွေးမြင့် Bluetooth နားကြပ် အဆင့်မြင့်မော်ဒယ်</div>
+                    <div class="p-price">စျေးနှုန်း မေးမြန်းရန်</div>
+                    <div class="p-moq">အနည်းဆုံးမှာယူရန် - ၅၀ ခု</div>
+                    
+                    <div class="contact-stack">
+                        <a href="viber://contact?number=959689052263&text=ZayGabar: နားကြပ် လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber ဖြင့်မေးရန်</a>
+                        <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram ဖြင့်မေးရန်</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ပစ္စည်း ၂ -->
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://via.placeholder.com/150" alt="Product 2">
+                </div>
+                <div class="info-box">
+                    <div class="p-name">အိမ်သုံး/ဆိုင်သုံး မီးဖိုချောင်သုံး ဓားနှင့် ကတ်ကြေး အစုံလိုက် Multi-set</div>
+                    <div class="p-price">စျေးနှုန်း မေးမြန်းရန်</div>
+                    <div class="p-moq">အနည်းဆုံးမှာယူရန် - ၂၀ စုံ</div>
+                    
+                    <div class="contact-stack">
+                        <a href="viber://contact?number=959689052263&text=ZayGabar: မီးဖိုချောင်သုံးအစုံ လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber ဖြင့်မေးရန်</a>
+                        <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram ဖြင့်မေးရန်</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ပစ္စည်း ၃ -->
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://via.placeholder.com/150" alt="Product 3">
+                </div>
+                <div class="info-box">
+                    <div class="p-name">GMCC Aircon Compressor 1.5 HP လက်ကားဒိုင်ရိုက်</div>
+                    <div class="p-price">စျေးနှုန်း မေးမြန်းရန်</div>
+                    <div class="p-moq">အနည်းဆုံးမှာယူရန် - ၅ လုံး</div>
+                    
+                    <div class="contact-stack">
+                        <a href="viber://contact?number=959689052263&text=ZayGabar: GMCC Compressor လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber ဖြင့်မေးရန်</a>
+                        <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram ဖြင့်မေးရန်</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ပစ္စည်း ၄ -->
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://via.placeholder.com/150" alt="Product 4">
+                </div>
+                <div class="info-box">
+                    <div class="p-name">အမျိုးသမီးကိုင် ခေတ်မှီ ပခုံးလွယ်အိတ် Leather မျိုးစုံ</div>
+                    <div class="p-price">စျေးနှုန်း မေးမြန်းရန်</div>
+                    <div class="p-moq">အနည်းဆုံးမှာယူရန် - ၃၀ လုံး</div>
+                    
+                    <div class="contact-stack">
+                        <a href="viber://contact?number=959689052263&text=ZayGabar: အမျိုးသမီးအိတ် လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber ဖြင့်မေးရန်</a>
+                        <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram ဖြင့်မေးရန်</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Contact -->
+    <div class="footer-contacts">
+        <div class="footer-title">ZayGabar Wholesale ပင်မဆက်သွယ်ရန်ဒိုင်</div>
+        <p>လူကြီးမင်းတို့ လိုအပ်သော ကုန်ပစ္စည်းမျိုးစုံကို လမ်းကြောင်းအခြေအနေအရ အမြန်ဆုံး ညှိနှိုင်းပေးပို့ပေးပါသည်။</p>
+        
+        <a href="tel:09689052263" class="main-call-btn">📞 ဖုန်းဖြင့် တိုက်ရိုက်ခေါ်ဆိုရန်</a>
+        
+        <p><b>Telegram Channel / Contact:</b><br><a href="https://t.me/KKKbusiness1" style="color: #ff9900; text-decoration: none; font-size: 16px; font-weight: bold;">@KKKbusiness1</a></p>
+        
+        <div class="wechat-id-box">
+            💬 WeChat ID: <b style="color: #ff9900; font-size: 16px; letter-spacing: 1px;">khunsai10</b><br>
+            <span style="font-size: 11px; color: #ccc;">(WeChat တွင် ရှာဖွေပြီး Add ထားနိုင်ပါသည်)</span>
+        </div>
+    </div>
+
+</body>
+                                          </html>
+                                          
