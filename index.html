@@ -3,342 +3,537 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZayGabar Wholesale | Amazon စတိုင် အထွေထွေလက်ကားကုန်စင်တာကြီး</title>
+    <title>ZayGabar Wholesale | ကုန်ပစ္စည်း လက်ကားဒိုင်</title>
     <style>
-        :root {
-            --amazon-orange: #ff9900;
-            --amazon-dark: #131921;
-            --amazon-light-dark: #232f3e;
-            --text-color: #333;
-            --bg-color: #eaeded;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        .header {
-            background-color: var(--amazon-dark);
-            color: white;
-            padding: 15px;
+        body {
+            background-color: #eaeded;
+            color: #111;
+            padding-bottom: 60px;
+        }
+        header {
+            background-color: #131921;
+            padding: 15px 10px;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
-
-        .brand-zone {
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
-
-        .brand-logo {
-            font-size: 24px;
+        .logo {
+            font-size: 22px;
             font-weight: bold;
-            color: white;
-            text-decoration: none;
+            color: #fff;
         }
-        .brand-logo span {
-            color: var(--amazon-orange);
+        .logo span {
+            color: #febd69;
         }
-
+        .sub-title {
+            color: #ccc;
+            font-size: 12px;
+        }
         .search-bar {
             display: flex;
-            background-color: white;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 2px solid transparent;
+            width: 100%;
         }
-        .search-bar:focus-within {
-            border-color: var(--amazon-orange);
-        }
-        .search-input {
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
             border: none;
-            padding: 12px;
-            flex-grow: 1;
-            outline: none;
+            border-radius: 4px 0 0 4px;
             font-size: 14px;
         }
-        .search-btn {
-            background-color: var(--amazon-orange);
+        .search-bar button {
+            background-color: #febd69;
             border: none;
-            padding: 0 20px;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
             cursor: pointer;
-            font-weight: bold;
         }
-
-        .nav-categories {
-            background-color: var(--amazon-light-dark);
-            display: flex;
+        nav {
+            background-color: #232f3e;
             overflow-x: auto;
-            padding: 10px;
-            gap: 15px;
             white-space: nowrap;
+            padding: 8px 10px;
         }
-        .nav-categories::-webkit-scrollbar { display: none; }
-        .cat-link {
-            color: white;
+        nav a {
+            color: #fff;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
+            margin-right: 15px;
+            font-size: 14px;
+            display: inline-block;
         }
-        .cat-link.active {
-            color: var(--amazon-orange);
+        nav a.active {
+            color: #febd69;
             font-weight: bold;
         }
-
-        .main-content {
-            padding: 12px;
-        }
-
-        .section-header {
+        .main-title {
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 12px;
-            color: var(--amazon-dark);
-        }
-
-        .amazon-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .product-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #ddd;
-        }
-
-        .img-box {
-            background-color: #fff;
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-        }
-        .img-box img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .info-box {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .p-name {
-            font-size: 13px;
-            font-weight: 600;
-            line-height: 1.4;
-            height: 36px;
-            overflow: hidden;
-            margin-bottom: 6px;
+            padding: 15px 10px 5px 10px;
             color: #111;
+            text-align: center;
         }
-
-        .p-price {
-            font-size: 16px;
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            background-color: #f7f7f7;
+        }
+        .product-name {
+            font-size: 13px;
             font-weight: bold;
-            color: #B12704;
-            margin-bottom: 2px;
+            color: #111;
+            line-height: 1.4;
+            height: 54px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            margin-bottom: 5px;
         }
-
-        .p-moq {
+        .price-tag {
+            font-size: 14px;
+            color: #b12704;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        .moq-tag {
             font-size: 11px;
             color: #565959;
             margin-bottom: 10px;
         }
+        
+        /* Qty & Cart Section */
+        .qty-selector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            background: #f0f2f2;
+            border-radius: 4px;
+            border: 1px solid #d5d9d9;
+        }
+        .qty-btn {
+            background: none;
+            border: none;
+            padding: 6px 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #111;
+        }
+        .qty-input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            background: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .add-cart-btn {
+            width: 100%;
+            background-color: #ffd814;
+            border: 1px solid #fcd200;
+            border-radius: 20px;
+            padding: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(213,217,217,.5);
+        }
 
+        /* Contact Stack */
         .contact-stack {
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            margin-top: auto;
+            gap: 4px;
         }
-
         .c-btn {
             display: block;
             text-align: center;
-            padding: 8px;
+            padding: 6px 3px;
             border-radius: 4px;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
-            color: white;
+            color: #fff;
         }
-        
-        .btn-viber { background-color: #732dd9; }
+        .btn-viber { background-color: #7360f2; }
         .btn-tele { background-color: #0088cc; }
+        .btn-wechat { background-color: #07c160; }
 
-        .footer-contacts {
-            background-color: var(--amazon-dark);
-            color: white;
-            padding: 20px 15px 40px 15px;
-            margin-top: 30px;
-            text-align: center;
-            font-size: 14px;
+        /* Cart Box Section */
+        .cart-section {
+            background-color: #fff;
+            border: 2px solid #febd69;
+            border-radius: 8px;
+            margin: 20px 10px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .footer-title {
-            color: var(--amazon-orange);
+        .cart-title {
             font-size: 16px;
-            margin-bottom: 15px;
             font-weight: bold;
+            color: #131921;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #eee;
+        }
+        .cart-empty {
+            text-align: center;
+            color: #767676;
+            font-size: 13px;
+            padding: 15px 0;
+        }
+        .copy-btn {
+            width: 100%;
+            background-color: #ffa41c;
+            border: 1px solid #ff8f00;
+            color: #fff;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            display: none;
         }
 
-        .main-call-btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--amazon-orange);
-            color: var(--amazon-dark);
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            margin-bottom: 15px;
+        .notice-box {
+            background-color: #232f3e;
+            border: 1px solid #131921;
+            padding: 15px;
+            margin: 20px 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .notice-box p {
+            color: #fff;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0;
         }
 
-        .wechat-id-box {
-            background-color: rgba(255,255,255,0.1);
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 15px;
-            display: inline-block;
-            border: 1px dashed var(--amazon-orange);
+        /* WeChat Modal Popup Style */
+        .wechat-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 10px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+        .qr-img {
+            width: 180px;
+            height: 180px;
+            margin: 10px auto;
+            display: block;
+            border: 3px solid #07c160;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #131921;
+            color: #fff;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .footer-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #febd69;
+        }
+        .footer-desc {
+            color: #ddd;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .footer-links p { margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
-    <!-- Header Zone -->
-    <div class="header">
-        <div class="brand-zone">
-            <a href="#" class="brand-logo">ZayGabar<span>.wholesale</span></a>
-            <span style="font-size: 11px; color: #ccc;">လက်ကားဒိုင်ကြီး</span>
+    <header>
+        <div class="header-top">
+            <div class="logo">ZayGabar<span>.wholesale</span></div>
+            <div class="sub-title">လက်ကားဒိုင်ကြီး</div>
         </div>
-        
         <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Amazon စတိုင် ကုန်ပစ္စည်းမျိုးစုံကို ရှာဖွေပါ...">
-            <button class="search-btn">🔍</button>
+            <input type="text" placeholder="Amazon စတိုင် ကုန်ပစ္စည်းမျိုးစုံကို ရှာဖွေပါ...">
+            <button>🔍</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#" class="active">All (အားလုံး)</a>
+        <a href="#">လူသုံးကုန်</a>
+        <a href="#">လျှပ်စစ်ပစ္စည်း</a>
+        <a href="#">အဝတ်အထည်</a>
+        <a href="#">အိမ်သုံးပစ္စည်း</a>
+    </nav>
+
+    <div class="main-title">အသစ်ရောက်ရှိသော လက်ကားကုန်ပစ္စည်းများ</div>
+
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card" data-id="1" data-name="တရုတ်နိုင်ငံထုတ် အမျိုးသမီးအိတ်မျိုးစုံ">
+            <div>
+                <img src="p1.jpg" alt="Product 1" class="product-img">
+                <div class="product-name">တရုတ်နိုင်ငံထုတ် အရည်အသွေးမြင့် အမျိုးသမီးအိတ်မျိုးစုံ</div>
+            </div>
+            <div>
+                <div class="price-tag">စျေးနှုန်း မေးမြန်းရန်</div>
+                <div class="moq-tag">အနည်းဆုံးမှာယူရန် - ၅၀ ခု</div>
+                
+                <div class="qty-selector">
+                    <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+                    <input type="number" class="qty-input" value="50" min="1">
+                    <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart(this)">🛒 ခြင်းတောင်းထဲထည့်ရန်</button>
+
+                <div class="contact-stack">
+                    <a href="viber://contact?number=959689052263&text=ZayGabar: အမျိုးသမီးအိတ် လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber</a>
+                    <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram</a>
+                    <a href="#wechat-qr-section" class="c-btn btn-wechat">WeChat နှိပ်ရန်</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-id="2" data-name="မီးဖိုချောင်သုံး ဓားနှင့် ကတ်ကြေးအစုံ">
+            <div>
+                <img src="p2.jpg" alt="Product 2" class="product-img">
+                <div class="product-name">အိမ်သုံး/ဆိုင်သုံး မီးဖိုချောင်သုံး ဓားနှင့် ကတ်ကြေး အစုံလိုက်စုံ</div>
+            </div>
+            <div>
+                <div class="price-tag">စျေးနှုန်း မေးမြန်းရန်</div>
+                <div class="moq-tag">အနည်းဆုံးမှာယူရန် - ၂၀ စုံ</div>
+                
+                <div class="qty-selector">
+                    <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+                    <input type="number" class="qty-input" value="20" min="1">
+                    <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart(this)">🛒 ခြင်းတောင်းထဲထည့်ရန်</button>
+
+                <div class="contact-stack">
+                    <a href="viber://contact?number=959689052263&text=ZayGabar: မီးဖိုချောင်သုံးပစ္စည်း လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber</a>
+                    <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram</a>
+                    <a href="#wechat-qr-section" class="c-btn btn-wechat">WeChat နှိပ်ရန်</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-id="3" data-name="ခေတ်မှီ လျှပ်စစ် ခြင်ရိုက်တံ">
+            <div>
+                <img src="p3.jpg" alt="Product 3" class="product-img">
+                <div class="product-name">ခေတ်မှီ လျှပ်စစ် ခြင်ရိုက်တံ နှင့် အလှပြမီးအိမ် (၂ မျိုးသုံး)</div>
+            </div>
+            <div>
+                <div class="price-tag">စျေးနှုန်း မေးမြန်းရန်</div>
+                <div class="moq-tag">အနည်းဆုံးမှာယူရန် - ၃၀ ခု</div>
+                
+                <div class="qty-selector">
+                    <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+                    <input type="number" class="qty-input" value="30" min="1">
+                    <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart(this)">🛒 ခြင်းတောင်းထဲထည့်ရန်</button>
+
+                <div class="contact-stack">
+                    <a href="viber://contact?number=959689052263&text=ZayGabar: ခြင်ရိုက်တံ လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber</a>
+                    <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram</a>
+                    <a href="#wechat-qr-section" class="c-btn btn-wechat">WeChat နှိပ်ရန်</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-id="4" data-name="ကလေးပညာပေး ရေဆေးခြယ်စာအုပ်">
+            <div>
+                <img src="p4.jpg" alt="Product 4" class="product-img">
+                <div class="product-name">ကလေးကစားစရာ ပညာပေး ရေဆေးခြယ်စာအုပ်နှင့် ရောင်စုံခဲတံများ</div>
+            </div>
+            <div>
+                <div class="price-tag">စျေးနှုန်း မေးမြန်းရန်</div>
+                <div class="moq-tag">အနည်းဆုံးမှာယူရန် - ၁၀၀ အုပ်</div>
+                
+                <div class="qty-selector">
+                    <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+                    <input type="number" class="qty-input" value="100" min="1">
+                    <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart(this)">🛒 ခြင်းတောင်းထဲထည့်ရန်</button>
+
+                <div class="contact-stack">
+                    <a href="viber://contact?number=959689052263&text=ZayGabar: ကလေးကစားစရာ လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber</a>
+                    <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram</a>
+                    <a href="#wechat-qr-section" class="c-btn btn-wechat">WeChat နှိပ်ရန်</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Categories -->
-    <div class="nav-categories">
-        <a href="#" class="cat-link active">All (အားလုံး)</a>
-        <a href="#" class="cat-link">လူသုံးကုန်</a>
-        <a href="#" class="cat-link">လျှပ်စစ်ပစ္စည်း</a>
-        <a href="#" class="cat-link">အဝတ်အထည်</a>
-        <a href="#" class="cat-link">အိတ်နှင့်ဖိနပ်</a>
-        <a href="#" class="cat-link">အဲကွန်း/အအေးခန်း</a>
-    </div>
-
-    <!-- Products -->
-    <div class="main-content">
-        <div class="section-header">အသစ်ရောက်ရှိသော လက်ကားကုန်ပစ္စည်းများ</div>
-        
-        <div class="amazon-grid">
-            
-            <!-- ပစ္စည်း ၁ -->
-            <div class="product-card">
-                <div class="img-box">
-                    <img src="https://via.placeholder.com/150" alt="Product 1">
-                </div>
-                <div class="info-box">
-                    <div class="p-name">တရုတ်နိုင်ငံထုတ် အရည်အသွေးမြင့် Bluetooth နားကြပ် အဆင့်မြင့်မော်ဒယ်</div>
-                    <div class="p-price">စျေးနှုန်း မေးမြန်းရန်</div>
-                    <div class="p-moq">အနည်းဆုံးမှာယူရန် - ၅၀ ခု</div>
-                    
-                    <div class="contact-stack">
-                        <a href="viber://contact?number=959689052263&text=ZayGabar: နားကြပ် လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber ဖြင့်မေးရန်</a>
-                        <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram ဖြင့်မေးရန်</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ပစ္စည်း ၂ -->
-            <div class="product-card">
-                <div class="img-box">
-                    <img src="https://via.placeholder.com/150" alt="Product 2">
-                </div>
-                <div class="info-box">
-                    <div class="p-name">အိမ်သုံး/ဆိုင်သုံး မီးဖိုချောင်သုံး ဓားနှင့် ကတ်ကြေး အစုံလိုက် Multi-set</div>
-                    <div class="p-price">စျေးနှုန်း မေးမြန်းရန်</div>
-                    <div class="p-moq">အနည်းဆုံးမှာယူရန် - ၂၀ စုံ</div>
-                    
-                    <div class="contact-stack">
-                        <a href="viber://contact?number=959689052263&text=ZayGabar: မီးဖိုချောင်သုံးအစုံ လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber ဖြင့်မေးရန်</a>
-                        <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram ဖြင့်မေးရန်</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ပစ္စည်း ၃ -->
-            <div class="product-card">
-                <div class="img-box">
-                    <img src="https://via.placeholder.com/150" alt="Product 3">
-                </div>
-                <div class="info-box">
-                    <div class="p-name">GMCC Aircon Compressor 1.5 HP လက်ကားဒိုင်ရိုက်</div>
-                    <div class="p-price">စျေးနှုန်း မေးမြန်းရန်</div>
-                    <div class="p-moq">အနည်းဆုံးမှာယူရန် - ၅ လုံး</div>
-                    
-                    <div class="contact-stack">
-                        <a href="viber://contact?number=959689052263&text=ZayGabar: GMCC Compressor လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber ဖြင့်မေးရန်</a>
-                        <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram ဖြင့်မေးရန်</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ပစ္စည်း ၄ -->
-            <div class="product-card">
-                <div class="img-box">
-                    <img src="https://via.placeholder.com/150" alt="Product 4">
-                </div>
-                <div class="info-box">
-                    <div class="p-name">အမျိုးသမီးကိုင် ခေတ်မှီ ပခုံးလွယ်အိတ် Leather မျိုးစုံ</div>
-                    <div class="p-price">စျေးနှုန်း မေးမြန်းရန်</div>
-                    <div class="p-moq">အနည်းဆုံးမှာယူရန် - ၃၀ လုံး</div>
-                    
-                    <div class="contact-stack">
-                        <a href="viber://contact?number=959689052263&text=ZayGabar: အမျိုးသမီးအိတ် လက်ကားစျေးမေးချင်လို့ပါ" class="c-btn btn-viber">Viber ဖြင့်မေးရန်</a>
-                        <a href="https://t.me/KKKbusiness1" class="c-btn btn-tele">Telegram ဖြင့်မေးရန်</a>
-                    </div>
-                </div>
-            </div>
-
+    <!-- Cart Summary Section -->
+    <div class="cart-section" id="cartSection">
+        <div class="cart-title">
+            <span>📦 မှာယူမည့် ကုန်ပစ္စည်းစာရင်းချုပ်</span>
+            <span id="totalItemsCount">0 ခု</span>
         </div>
+        <div id="cartItemsContainer">
+            <div class="cart-empty">ခြင်းတောင်းထဲတွင် ပစ္စည်းမရှိသေးပါ။ လိုအပ်သောအရေအတွက်ရွေး၍ ထည့်ပေးပါ။</div>
+        </div>
+        <button class="copy-btn" id="copyCartBtn" onclick="copyOrderList()">📋 မှာယူမည့်စာရင်းကို Copy ကူးရန်</button>
     </div>
 
-    <!-- Footer Contact -->
-    <div class="footer-contacts">
+    <!-- WeChat QR Display Section -->
+    <div class="wechat-box" id="wechat-qr-section">
+        <h4 style="color: #07c160; font-size: 15px;">🟢 WeChat ဖြင့် အပ်နှံရန် QR Code</h4>
+        <p style="font-size: 12px; color: #555; margin-top: 3px;">မန်နေဂျာအမည် - <strong>Khun Sai Naung</strong></p>
+        <img src="wechat_qr.jpg" alt="WeChat QR Code" class="qr-img">
+        <p style="font-size: 11px; color: #777;">(ဖုန်းဖြင့်ကြည့်ပါက စခရင်ရှော့ရိုက်၍ WeChat ထဲတွင် Scan ဖတ်ပြီး အလွယ်တကူ Add နိုင်ပါသည်)</p>
+    </div>
+
+    <!-- သတိပေးချက် စာတန်း -->
+    <div class="notice-box">
+        <p>
+            📌 <strong>လူကြီးမင်းတို့ သတိပြုရန် -</strong> ကုန်ပစ္စည်းများ မှာယူလိုပါက အထက်ပါအတိုင်း ခြင်းတောင်းထဲထည့်၍ စာရင်းချုပ်ကို Copy ကူးပြီး Viber / Telegram / WeChat မှတစ်ဆင့် ကျွန်ုပ်တို့၏ Customer Service သို့ ပို့ဆောင်၍ ညှိနှိုင်းနိုင်ပါသည်။ လူကြီးမင်းတို့ စိတ်ကြိုက် ညှိနှိုင်းပြီးမှသာ ကျွန်ုပ်တို့၏ လုပ်ငန်းသုံး ဘဏ်အကောင့်များသို့ ငွေလွှဲနှံရမည် ဖြစ်ပါသဖြင့် ဝက်ဆိုက်ပေါ်တွင် ငွေစာရင်းများ တိုက်ရိုက် ထည့်သွင်းထားခြင်း မရှိပါကြောင်း လေးစားစွာ အသိပေးအပ်ပါသည်။
+        </p>
+    </div>
+
+    <footer>
         <div class="footer-title">ZayGabar Wholesale ပင်မဆက်သွယ်ရန်ဒိုင်</div>
-        <p>လူကြီးမင်းတို့ လိုအပ်သော ကုန်ပစ္စည်းမျိုးစုံကို လမ်းကြောင်းအခြေအနေအရ အမြန်ဆုံး ညှိနှိုင်းပေးပို့ပေးပါသည်။</p>
-        
-        <a href="tel:09689052263" class="main-call-btn">📞 ဖုန်းဖြင့် တိုက်ရိုက်ခေါ်ဆိုရန်</a>
-        
-        <p><b>Telegram Channel / Contact:</b><br><a href="https://t.me/KKKbusiness1" style="color: #ff9900; text-decoration: none; font-size: 16px; font-weight: bold;">@KKKbusiness1</a></p>
-        
-        <div class="wechat-id-box">
-            💬 WeChat ID: <b style="color: #ff9900; font-size: 16px; letter-spacing: 1px;">khunsai10</b><br>
-            <span style="font-size: 11px; color: #ccc;">(WeChat တွင် ရှာဖွေပြီး Add ထားနိုင်ပါသည်)</span>
+        <div class="footer-desc">လူကြီးမင်းတို့ လိုအပ်သော ကုန်ပစ္စည်းမျိုးစုံကို လမ်းကြောင်းအခြေအနေအရ အမြန်ဆုံး ညှိနှိုင်းပေးပို့ပေးပါသည်။</div>
+        <div class="footer-links">
+            <p>Viber: +959689052263 | Telegram: @KKKbusiness1</p>
+            <p>WeChat Account: Khun Sai Naung</p>
         </div>
-    </div>
+    </footer>
+
+    <script>
+        let cart = {};
+
+        function changeQty(btn, amount) {
+            let input = btn.parentNode.querySelector('.qty-input');
+            let currentVal = parseInt(input.value);
+            let newVal = currentVal + amount;
+            if (newVal >= 1) {
+                input.value = newVal;
+            }
+        }
+
+        function addToCart(btn) {
+            let card = btn.closest('.product-card');
+            let id = card.getAttribute('data-id');
+            let name = card.getAttribute('data-name');
+            let qty = parseInt(card.querySelector('.qty-input').value);
+
+            cart[id] = { name: name, qty: qty };
+            updateCartUI();
+            
+            btn.innerText = "✅ ထည့်သွင်းပြီးပါပြီ";
+            btn.style.backgroundColor = "#2bc41a";
+            btn.style.color = "#fff";
+            setTimeout(() => {
+                btn.innerText = "🛒 ခြင်းတောင်းထဲထည့်ရန်";
+                btn.style.backgroundColor = "#ffd814";
+                btn.style.color = "#111";
+            }, 1500);
+        }
+
+        function updateCartUI() {
+            let container = document.getElementById('cartItemsContainer');
+            let totalCountSpan = document.getElementById('totalItemsCount');
+            let copyBtn = document.getElementById('copyCartBtn');
+            
+            container.innerHTML = "";
+            let keys = Object.keys(cart);
+            
+            if (keys.length === 0) {
+                container.innerHTML = '<div class="cart-empty">ခြင်းတောင်းထဲတွင် ပစ္စည်းမရှိသေးပါ။ လိုအပ်သောအရေအတွက်ရွေး၍ ထည့်ပေးပါ။</div>';
+                totalCountSpan.innerText = "0 ခု";
+                copyBtn.style.display = "none";
+                return;
+            }
+            
+            let totalQty = 0;
+            keys.forEach(id => {
+                totalQty += cart[id].qty;
+                let itemDiv = document.createElement('div');
+                itemDiv.className = "cart-item";
+                itemDiv.innerHTML = `
+                    <span>🔹 ${cart[id].name}</span>
+                    <strong>${cart[id].qty} ခု/စုံ</strong>
+                `;
+                container.appendChild(itemDiv);
+            });
+            
+            totalCountSpan.innerText = totalQty + " ခု/စုံ";
+            copyBtn.style.display = "block";
+        }
+
+        function copyOrderList() {
+            let textToCopy = "📦 [ZayGabar Wholesale] မှာယူမည့်ကုန်ပစ္စည်းစာရင်းချုပ် -\n\n";
+            Object.keys(cart).forEach((id, index) => {
+                textToCopy += `${index + 1}. ${cart[id].name} -> (${cart[id].qty}) ခု/စုံ\n`;
+            });
+            textToCopy += "\nဤစာရင်းအား စျေးနှုန်းနှင့် ဂိတ်ချခများအတွက် Customer Service တွင် ကူညီညှိနှိုင်းပေးပါရန်။";
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                let copyBtn = document.getElementById('copyCartBtn');
+                copyBtn.innerText = "📋 စာရင်းကို Copy ကူးပြီးပါပြီ! (Viber/WeChat တွင် ပို့နိုင်ပါပြီ)";
+                copyBtn.style.backgroundColor = "#2bc41a";
+                setTimeout(() => {
+                    copyBtn.innerText = "📋 မှာယူမည့်စာရင်းကို Copy ကူးရန်";
+                    copyBtn.style.backgroundColor = "#ffa41c";
+                }, 3000);
+            }).catch(err => {
+                alert("Copy ကူးမရဖြစ်နေပါသည်။ စခရင်ရှော့ရိုက်၍ ပို့ပေးပါ။");
+            });
+        }
+    </script>
 
 </body>
-                                          </html>
-                                          
+</html>
